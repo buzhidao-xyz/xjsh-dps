@@ -1,0 +1,31 @@
+:host {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-color: #e1e1e1;
+  border-style: solid;
+  border-width: 0 0 1px;
+  display: block;
+  height: 48px;
+  padding: 0 16px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #106cc8;
+}
+
+nav.navbar {
+  padding: 0;
+  text-align: center;
+
+  a {
+    color: #8f8f8f;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 48px;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  a.router-link-active {
+    color: #106cc8;
+  }
+}

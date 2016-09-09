@@ -5,10 +5,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 /**
- * This class provides the NameList service with methods to read names and add names.
+ * This class provides the Merchant service with methods to read names and add names.
  */
 @Injectable()
-export class NameListService {
+export class MerchantService {
 
   /**
    * Creates a new NameListService with the injected Http.
@@ -21,8 +21,8 @@ export class NameListService {
    * Returns an Observable for the HTTP GET request for the JSON resource.
    * @return {string[]} The Observable for the HTTP request.
    */
-  get(): Observable<string[]> {
-    return this.http.get('/assets/data.json')
+  getMerchantlist(): Observable<string[]> {
+    return this.http.get('/assets/api/merchantlist.json')
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
   }

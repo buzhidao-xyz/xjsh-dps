@@ -10,7 +10,8 @@ import { Config, NavbarComponent, ToolbarComponent } from './shared/index';
   moduleId: module.id,
   selector: 'sd-app',
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
+  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent],
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {

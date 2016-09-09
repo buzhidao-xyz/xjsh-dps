@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NameListService } from '../shared/index';
+import { MerchantService } from '../shared/index';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -13,44 +13,44 @@ import { NameListService } from '../shared/index';
 
 export class HomeComponent implements OnInit {
 
-  newName: string = '';
+  newMerchant: string = '';
   errorMessage: string;
-  names: any[] = [];
+  merchants: any[] = [];
 
   /**
    * Creates an instance of the HomeComponent with the injected
-   * NameListService.
+   * MerchantService.
    *
-   * @param {NameListService} nameListService - The injected NameListService.
+   * @param {MerchantService} MerchantService - The injected MerchantService.
    */
-  constructor(public nameListService: NameListService) {}
+  constructor(public merchantService: MerchantService) {}
 
   /**
-   * Get the names OnInit
+   * Get the merchants OnInit
    */
   ngOnInit() {
-    this.getNames();
+    this.getMerchants();
   }
 
   /**
-   * Handle the nameListService observable
+   * Handle the MerchantService observable
    */
-  getNames() {
-    this.nameListService.get()
+  getMerchants() {
+    this.merchantService.getMerchantlist()
                      .subscribe(
-                       names => this.names = names,
+                       merchants => this.merchants = merchants,
                        error =>  this.errorMessage = <any>error
-                       );
+                     );
   }
 
   /**
-   * Pushes a new name onto the names array
+   * Pushes a new merchant onto the merchants array
    * @return {boolean} false to prevent default form submit behavior to refresh the page.
    */
-  addName(): boolean {
-    // TODO: implement nameListService.post
-    this.names.push(this.newName);
-    this.newName = '';
+  addMerchant(): boolean {
+    // TODO: implement merchantService.post
+    this.merchants.push(this.newMerchant);
+    this.newMerchant = '';
     return false;
   }
 

@@ -1,4 +1,11 @@
-<nav>
-  <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">HOME</a>
-  <a [routerLink]="['/about']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">ABOUT</a>
+<nav class="navbar row">
+  <div class="col-xs-4 text-center">
+    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">主页</a>
+  </div>
+  <div class="col-xs-4">
+    <a [routerLink]="['/public/ranklist']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">排行榜</a>
+  </div>
+  <div class="col-xs-4">
+    <a [routerLink]="['/user']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">个人中心</a>
+  </div>
 </nav>
