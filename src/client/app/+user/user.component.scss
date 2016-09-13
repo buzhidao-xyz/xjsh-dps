@@ -1,6 +1,5 @@
 :host {
   display: block;
-  padding: 0 16px;
 }
 
 h2 {
@@ -9,4 +8,89 @@ h2 {
   letter-spacing: 0.005em;
   margin-bottom: 0;
   margin-top: 0.83em;
+}
+
+.userbox {
+  margin: 0 -15px;
+
+  .basicinfo {
+    text-align: center;
+    padding: 15px 0 15px 0;
+    background: #F1F1F1;
+    
+    img {
+      width: 35%;
+      height: auto;
+    }
+  }
+
+  .listinfo {
+    p {
+      padding: 12px 25px;
+      border-top: 1px solid #777;
+      margin: 0;
+
+      span {
+          display: inline-block;
+      }
+
+      span.clabel {
+          width: 135px;      
+      }
+
+      span.cvalue {
+        h5 {
+          display: inline-block;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    p:last-child {
+      border-bottom: 1px solid #777;
+    }
+  }
+
+  p.exit {
+    width: 75%;
+    margin: 30px auto 10px auto;
+  }
+}
+
+.rankingbox {
+  display: block;
+  padding: 10px 0;
+
+  h5.title {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .ranking {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+
+    thead {
+      tr {
+        th {
+          padding: 10px;
+          font-size: 14px;
+          text-align: center;
+          color: #AAA;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          padding: 5px 10px;
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

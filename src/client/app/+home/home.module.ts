@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../shared/shared.module';
+import { CommoncModule } from '../commonc/commonc.module';
 import { HomeComponent } from './home.component';
-import { MerchantService } from '../shared/merchant/index';
+import { MerchantService } from '../service/index';
 
 @NgModule({
-    imports: [CommonModule, SharedModule],
+    imports: [CommonModule, CommoncModule],
     declarations: [HomeComponent],
     exports: [HomeComponent],
     providers: [MerchantService]

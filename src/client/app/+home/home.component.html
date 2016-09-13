@@ -1,12 +1,1 @@
-<p>
-  Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.
-</p>
-
-<form (submit)="addMerchant()">
-  <input [(ngModel)]="newMerchant" name="newMerchant" placeholder="Awesome Computer Scientist">
-  <button type="submit">Add</button>
-</form>
-
-<ul>
-  <li *ngFor="let merchant of merchants">{{merchant}}</li>
-</ul>
+<sd-merchantlist></sd-merchantlist>

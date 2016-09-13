@@ -1,0 +1,14 @@
+<div class="merchantlistbox">
+  <ul class="list-unstyled">
+    <li class="merchant row" *ngFor="let merchant of merchantlist">
+      <a href="/merchant/{{merchant.id}}">
+        <div class="col-xs-5"><img src="{{merchant.logo}}" class="img-responsive logo"></div>
+        <div class="col-xs-7">
+          <h5>{{merchant.name}}</h5>
+          <p>电话：{{merchant.phone}}</p>
+          <p>地址：{{merchant.address}}</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

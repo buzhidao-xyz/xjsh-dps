@@ -4,14 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { Config } from '../../commonc/index';
+
 /**
- * This class provides the Merchant service with methods to read names and add names.
+ * This class provides the Merchant service with methods to read.
  */
 @Injectable()
 export class MerchantService {
 
   /**
-   * Creates a new NameListService with the injected Http.
+   * Creates a new MerchantService with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
@@ -19,10 +21,10 @@ export class MerchantService {
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
-   * @return {string[]} The Observable for the HTTP request.
+   * @return {any[]} The Observable for the HTTP request.
    */
-  getMerchantlist(): Observable<string[]> {
-    return this.http.get('/assets/api/merchantlist.json')
+  getMerchantlist(): Observable<any> {
+    return this.http.get(Config.API + 'api/merchant/list')
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
   }
@@ -33,8 +35,7 @@ export class MerchantService {
   private handleError (error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
   }

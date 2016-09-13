@@ -1,5 +1,5 @@
 export = {
   // Sample API url
-  API: 'https://demo.com'
+  API: 'http://wx.ilisin.xlh-tech.com/'
 };
 

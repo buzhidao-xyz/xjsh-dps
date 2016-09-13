@@ -10,12 +10,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
+import { CommoncModule } from './commonc/commonc.module';
 import { HomeModule } from './+home/home.module';
 import { UserModule } from './+user/user.module';
-import { SharedModule } from './shared/shared.module';
+import { MerchantModule } from './+merchant/merchant.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, HomeModule, UserModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, CommoncModule.forRoot(), HomeModule, UserModule, MerchantModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

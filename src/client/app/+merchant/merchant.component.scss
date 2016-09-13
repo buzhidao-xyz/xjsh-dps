@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.merchantlistbox {
+  ul {
+    li.merchant {
+      margin-bottom: 15px;
+
+      a {
+        color: #333333;
+      }
+
+      h5 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 13px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      img.logo {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+
+.merchantbox {
+  display: block;
+  padding: 0 30px;
+  padding-top: 30px;
+
+  .logo {
+    text-align: center;
+  }
+
+  p {
+    display: block;
+    overflow: hidden;
+  }
+
+  span {
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+
+  span.clabel {
+    margin-top: 10px;
+  }
+}

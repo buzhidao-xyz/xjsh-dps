@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 
 import { ToolbarComponent } from './toolbar/index';
 import { NavbarComponent } from './navbar/index';
-import { MerchantService } from './merchant/index';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -14,14 +13,13 @@ import { MerchantService } from './merchant/index';
 @NgModule({
   imports: [CommonModule, RouterModule],
   declarations: [ToolbarComponent, NavbarComponent],
-  exports: [ToolbarComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule]
+  exports: [ToolbarComponent, NavbarComponent, CommonModule, FormsModule, RouterModule]
 })
-export class SharedModule {
+export class CommoncModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SharedModule,
-      providers: [MerchantService]
+      ngModule: CommoncModule,
+      providers: []
     };
   }
 }

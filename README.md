@@ -1,3 +1,8 @@
+# Notice
+
+> Base on Angular2-seed version: 2.0.0-rc.5
+
+
 # Introduction
 
 [![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)

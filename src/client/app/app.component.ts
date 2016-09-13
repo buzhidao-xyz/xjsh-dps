@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { Config, NavbarComponent, ToolbarComponent } from './shared/index';
+import { Config, NavbarComponent, ToolbarComponent } from './commonc/index';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
