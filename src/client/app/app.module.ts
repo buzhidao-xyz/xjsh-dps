@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 // import ng-bootstrap directives

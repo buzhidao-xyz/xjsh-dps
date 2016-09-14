@@ -20,6 +20,13 @@ export class UserService {
                     .catch(this.handleError);
     }
 
+    //获取用户体现列表
+    getProfit(): Observable<any> {
+        return this.http.get(Config.API + 'api/profit/list')
+                    .map((res: Response) => res.json())
+                    .catch(this.handleError);
+    }
+
     //Handle HTTP error
     private handleError (error: any) {
         // In a real world app, we might use a remote logging infrastructure

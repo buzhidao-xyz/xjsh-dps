@@ -27,8 +27,12 @@ h2 {
   .listinfo {
     p {
       padding: 12px 25px;
-      border-top: 1px solid #777;
+      border-top: 1px solid #999;
       margin: 0;
+
+      a.plink {
+        color: #373a3c;
+      }
 
       span {
           display: inline-block;
@@ -42,12 +46,18 @@ h2 {
         h5 {
           display: inline-block;
           margin-bottom: 0;
+          margin-right: 3px;
+          font-size: 1.5em;
         }
+      }
+
+      span.carrow {
+        float: right;
       }
     }
 
     p:last-child {
-      border-bottom: 1px solid #777;
+      border-bottom: 1px solid #999;
     }
   }
 
@@ -91,6 +101,49 @@ h2 {
           text-align: center;
         }
       }
+    }
+  }
+}
+
+.profitbox {
+  li {
+    border-radius: 5px;
+    background: #F1F1F1;
+    padding: 10px;
+    padding-bottom: 25px;
+    margin-bottom: 15px;
+
+    p {
+      margin-left: 20px;
+
+      span.amount {
+        display: inline-block;
+
+        h5 {
+          display: inline-block;
+          font-size: 1.5em;
+          margin-right: 3px;
+          color: #ff5722;
+        }
+      }
+      span.opbtn {
+        display: inline-block;
+        float: right;
+
+        button {
+          width: 75px;
+          padding: 5px 10px;
+          height: 35px;
+          line-height: 25px;
+        }
+      }
+    }
+
+    p.dt {
+      color: #AAA;
+      font-size: 1em;
+      margin-top: 0;
+      margin-left: 0;
     }
   }
 }

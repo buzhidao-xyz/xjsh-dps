@@ -3,5 +3,6 @@
  */
 export * from './merchant.component';
 export * from './merchantlist.component';
+export * from './merchantmap.component';
 export * from './merchant.routes';
 

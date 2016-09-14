@@ -3,19 +3,22 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { MerchantService } from '../service/index';
 
 /**
- * This class represents the lazy loaded MerchantComponent.
+ * This class represents the lazy loaded MerchantMapComponent.
  */
 @Component({
   moduleId: module.id,
-  selector: 'sd-merchant',
-  templateUrl: 'merchant.component.html',
+  selector: 'sd-merchantmap',
+  templateUrl: 'merchantmap.component.html',
   styleUrls: ['merchant.component.css'],
 })
 
-export class MerchantComponent implements OnInit {
-  merchantid: string;
-  errorMessage: string;
-  merchant: any = {};
+export class MerchantMapComponent implements OnInit {
+    merchantid: string;
+    errorMessage: string;
+    merchant: any = {};
+
+    //BDMapObject
+    BDMapObject: any;
 
   /**
    * Creates an instance of the MerchantComponent with the injected
@@ -43,16 +46,15 @@ export class MerchantComponent implements OnInit {
     this.merchantService.getMerchantlist()
                      .subscribe(
                         res => {
-                          if (!res.error) {
-                            for (let index in res.merchants) {
-                              if (res.merchants[index].id == this.merchantid) this.merchant = res.merchants[index];
+                            if (!res.error) {
+                                for (let index in res.merchants) {
+                                    if (res.merchants[index].id == this.merchantid) this.merchant = res.merchants[index];
+                                }
                             }
-                          }
                         },
                         error => {
-                          this.errorMessage = <any>error;
+                            this.errorMessage = <any>error;
                         }
                      );
   }
-
 }

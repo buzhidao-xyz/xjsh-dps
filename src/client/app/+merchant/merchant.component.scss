@@ -5,20 +5,30 @@
 .merchantlistbox {
   ul {
     li.merchant {
-      margin-bottom: 15px;
+      padding: 10px 0 5px 0;
+      margin: 0 -15px;
 
       a {
         color: #333333;
       }
 
       h5 {
-        margin-bottom: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
       }
 
       p {
         font-size: 13px;
         margin-top: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        display: block;
+        overflow: hidden;
+
+        a.pos {
+          display: block;
+          float: right;
+          color: #106cc8;
+        }
       }
 
       img.logo {
@@ -29,7 +39,6 @@
   }
 }
 
-
 .merchantbox {
   display: block;
   padding: 0 30px;
@@ -37,6 +46,10 @@
 
   .logo {
     text-align: center;
+
+    img {
+      width: 75%;
+    }
   }
 
   p {
@@ -52,5 +65,9 @@
 
   span.clabel {
     margin-top: 10px;
+  }
+
+  button {
+    margin-top: 30px;
   }
 }
