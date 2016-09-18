@@ -1,20 +1,12 @@
 <div class="profitbox">
     <ul class="list-unstyled">
-        <li>
-            <p class="dt">2016年9月</p>
+        <li *ngFor="let profit of profits">
+            <p class="dt">{{profit.year}}年{{profit.month}}月</p>
             <p>
-                <span class="amount">分成金额：<h5>2500</h5>元</span>
+                <span class="amount">分成金额：<h5>{{profit.amount}}</h5>元</span>
                 <span class="opbtn">
-                    <button type="button" class="btn btn-success btn-sm">提现</button>
-                </span>
-            </p>
-        </li>
-        <li>
-            <p class="dt">2016年9月</p>
-            <p>
-                <span class="amount">分成金额：<h5>2500</h5>元</span>
-                <span class="opbtn">
-                    <button type="button" class="btn btn-secondary btn-sm disabled" disabled>已提现</button>
+                    <button type="button" class="btn btn-success btn-sm" *ngIf="profit.status==0" (click)="profitOn(profit.id)">提现</button>
+                    <button type="button" class="btn btn-secondary btn-sm disabled" disabled *ngIf="profit.status==1">已提现</button>
                 </span>
             </p>
         </li>

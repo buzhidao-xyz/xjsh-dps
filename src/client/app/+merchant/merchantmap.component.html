@@ -1,14 +1,1 @@
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=bIWGFAy09QxxFPhDHRcgxUAYxGsSkdmZ"></script>
-<div id="BDMap"></div>
-<script type="text/javascript">
-function BDMapClass() {
-    var DefaultLat = 31.307776;
-    var DefaultLng = 120.628489;
-
-    BDMapObject = new BMap.Map("BDMap", {minZoom:13, maxZoom:23});
-    BDMapObject.centerAndZoom(new BMap.Point(DefaultLng, DefaultLat), 15);
-    BDMapObject.enableScrollWheelZoom(true);
-    BDMapObject.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
-}
-new BDMapClass();
-</script>
+<div id="BDMap" class="bdmap"></div>

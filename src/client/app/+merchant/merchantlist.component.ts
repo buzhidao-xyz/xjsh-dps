@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MerchantService } from '../service/index';
 
 /**
@@ -23,7 +24,7 @@ export class MerchantListComponent implements OnInit {
    *
    * @param {MerchantService} MerchantService - The injected MerchantService.
    */
-  constructor(public merchantService: MerchantService) {}
+  constructor(public merchantService: MerchantService, public router: Router) {}
 
   /**
    * Get the merchants OnInit
@@ -49,14 +50,13 @@ export class MerchantListComponent implements OnInit {
                      );
   }
 
-  /**
-   * Pushes a new merchant onto the merchants array
-   * @return {boolean} false to prevent default form submit behavior to refresh the page.
-   */
-  addMerchant(): boolean {
-    this.merchantlist.push(this.newMerchant);
-    this.newMerchant = '';
-    return false;
+  merchantPay(merchantid: any): void {
+    this.merchantService.merchantid = merchantid;
+    this.router.navigate(['/pay']);
   }
 
+  merchantMap(merchantid: any): void {
+    this.merchantService.merchantid = merchantid;
+    this.router.navigate(['/merchant/map']);
+  }
 }

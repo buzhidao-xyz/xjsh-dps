@@ -13,6 +13,13 @@ import { Config } from '../../commonc/index';
 export class UserService {
     constructor(private http: Http) {}
 
+    //获取用户信息
+    getUserinfo(): Observable<any> {
+        return this.http.get(Config.API + 'api/user/info')
+                    .map((res: Response) => res.json())
+                    .catch(this.handleError);
+    }
+
     //获取用户上月收益排行榜
     getRanking(): Observable<any> {
         return this.http.get(Config.API + 'api/ranking')
@@ -20,9 +27,16 @@ export class UserService {
                     .catch(this.handleError);
     }
 
-    //获取用户体现列表
+    //获取用户提现列表
     getProfit(): Observable<any> {
         return this.http.get(Config.API + 'api/profit/list')
+                    .map((res: Response) => res.json())
+                    .catch(this.handleError);
+    }
+
+    //用户提现
+    profitOn(id: any): Observable<any> {
+        return this.http.get(Config.API + 'api/profit/get?id='+id)
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
     }

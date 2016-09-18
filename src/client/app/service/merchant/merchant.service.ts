@@ -11,13 +11,17 @@ import { Config } from '../../commonc/index';
  */
 @Injectable()
 export class MerchantService {
+  merchantid: any;
+  amount: any;
 
   /**
    * Creates a new MerchantService with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    
+  }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.

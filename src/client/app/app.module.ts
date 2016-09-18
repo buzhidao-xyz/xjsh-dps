@@ -14,9 +14,10 @@ import { CommoncModule } from './commonc/commonc.module';
 import { HomeModule } from './+home/home.module';
 import { UserModule } from './+user/user.module';
 import { MerchantModule } from './+merchant/merchant.module';
+import { PayModule } from './pay/pay.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, CommoncModule.forRoot(), HomeModule, UserModule, MerchantModule],
+  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, CommoncModule.forRoot(), HomeModule, UserModule, MerchantModule, PayModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

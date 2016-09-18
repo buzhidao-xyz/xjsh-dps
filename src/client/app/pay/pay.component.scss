@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+.merchantbox {
+  display: block;
+  padding: 0 30px;
+  padding-top: 30px;
+
+  .logo {
+    text-align: center;
+
+    img {
+      width: 75%;
+    }
+  }
+
+  h5 {
+    color: #000;
+    font-weight: 700;
+  }
+
+  p {
+    color: #5E5E5E;
+    display: block;
+    overflow: hidden;
+  }
+
+  span {
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+
+  span.clabel {
+    margin-top: 10px;
+  }
+
+  button {
+    margin-top: 30px;
+  }
+}
+
+.paybox {
+    margin-left: -15px;
+    margin-right: -15px;
+
+    h5 {
+        height: 50px;
+        line-height: 50px;
+        text-indent: 30px;
+        color: #3EA806;
+        background: #F1F1F1;
+        border-bottom: 2px solid #BBB;
+        margin: 0;
+
+        img {
+            width: 25px;
+            margin-top: -4px;
+            margin-right: 5px;
+        }
+    }
+
+    p.company {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        height: 70px;
+        line-height: 70px;
+        color: #333333;
+        background: #FFF;
+        border-bottom: 1px solid #CCC;
+        margin: 0;
+    }
+
+    .info {
+        text-align: center;
+        padding-top: 30px;
+
+        p.clabel {
+            color: #AFAFAF;
+        }
+        p.cvalue {
+            color: #3E3E3E;
+        }
+    }
+
+    .support {
+        position: absolute;
+        width: 100%;
+        bottom: 50px;
+        height: 70px;
+        line-height: 70px;
+        color: #777;
+        font-size: 13px;
+        text-align: center;
+        background: #E1E1E1;
+        border-top: 1px solid #BBB;
+    }
+}

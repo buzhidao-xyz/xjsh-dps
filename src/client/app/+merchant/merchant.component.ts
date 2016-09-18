@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { MerchantService } from '../service/index';
 
 /**
@@ -13,9 +13,9 @@ import { MerchantService } from '../service/index';
 })
 
 export class MerchantComponent implements OnInit {
-  merchantid: string;
-  errorMessage: string;
+  merchantid: any;
   merchant: any = {};
+  errorMessage: string;
 
   /**
    * Creates an instance of the MerchantComponent with the injected
@@ -23,36 +23,12 @@ export class MerchantComponent implements OnInit {
    *
    * @param {MerchantService} MerchantService - The injected MerchantService.
    */
-  constructor(public merchantService: MerchantService, public route: ActivatedRoute) {}
+  constructor(public merchantService: MerchantService, public router: Router) {}
   
   /**
    * Get the merchants OnInit
    */
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-        this.merchantid = params['merchantid'];
 
-        this.getMerchantlist();
-    });
   }
-
-  /**
-   * Handle the MerchantService observable
-   */
-  getMerchantlist() {
-    this.merchantService.getMerchantlist()
-                     .subscribe(
-                        res => {
-                          if (!res.error) {
-                            for (let index in res.merchants) {
-                              if (res.merchants[index].id == this.merchantid) this.merchant = res.merchants[index];
-                            }
-                          }
-                        },
-                        error => {
-                          this.errorMessage = <any>error;
-                        }
-                     );
-  }
-
 }

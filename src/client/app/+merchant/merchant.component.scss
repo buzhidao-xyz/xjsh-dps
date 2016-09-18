@@ -13,11 +13,13 @@
       }
 
       h5 {
+        color: #000;
         font-weight: 700;
         margin-bottom: 5px;
       }
 
       p {
+        color: #5E5E5E;
         font-size: 13px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -39,35 +41,11 @@
   }
 }
 
-.merchantbox {
-  display: block;
-  padding: 0 30px;
-  padding-top: 30px;
-
-  .logo {
-    text-align: center;
-
-    img {
-      width: 75%;
-    }
-  }
-
-  p {
-    display: block;
-    overflow: hidden;
-  }
-
-  span {
-    display: block;
-    float: left;
-    overflow: hidden;
-  }
-
-  span.clabel {
-    margin-top: 10px;
-  }
-
-  button {
-    margin-top: 30px;
-  }
+.bdmap {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
 }

@@ -4,11 +4,11 @@ import { MerchantMapComponent } from './index';
 
 export const MerchantRoutes: Route[] = [
   {
-    path: 'merchant/:merchantid',
+    path: 'merchant',
     component: MerchantComponent
   },
   {
-    path: 'merchant/map/:merchantid',
+    path: 'merchant/map',
     component: MerchantMapComponent
   }
 ];
