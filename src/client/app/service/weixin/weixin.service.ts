@@ -86,6 +86,23 @@ export class WeixinService {
                 this.errorMessage = <any>error;
             }
         );
+
+        return false;
+    }
+
+    //分享到朋友圈
+    wxshareTimeLine(title: string, link: string, imgUrl: string): any {
+        wx.onMenuShareTimeline({
+            title: title, // 分享标题
+            link: link, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
     }
 
     //Handle HTTP error

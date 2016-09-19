@@ -11,15 +11,15 @@
         <p>
             <span class="clabel">当月消费总额：</span>
             <span class="cvalue">
-                <h5><font color="#008000">10</font></h5> 次&nbsp;&nbsp;&nbsp;
-                <h5><font color="#ff5722">2500</font></h5> 元
+                <h5><font color="#008000">{{user.order_count}}</font></h5> 次&nbsp;&nbsp;&nbsp;
+                <h5><font color="#ff5722">{{user.amount}}</font></h5> 元
             </span>
         </p>
         <p>
             <span class="clabel">当月业绩总额：</span>
             <span class="cvalue">
-                <h5><font color="#008000">10</font></h5> 次&nbsp;&nbsp;&nbsp;
-                <h5><font color="#ff5722">2500</font></h5> 元
+                <h5><font color="#008000">{{user.promotion_order_count}}</font></h5> 次&nbsp;&nbsp;&nbsp;
+                <h5><font color="#ff5722">{{user.promotion_amount}}</font></h5> 元
             </span>
         </p>
         <p>
@@ -29,7 +29,7 @@
             </a>
         </p>
         <p>
-            <a href="" class="plink">
+            <a href="javascript:;" class="plink" (click)="share()">
                 <span class="clabel">分享二维码</span>
                 <span class="carrow">&gt;</span>
             </a>

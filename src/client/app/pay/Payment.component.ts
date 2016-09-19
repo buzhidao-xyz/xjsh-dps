@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { MerchantService } from '../service/index';
 
 /**
@@ -19,7 +19,7 @@ export class PaymentComponent implements OnInit {
     errorMessage: string;
     merchant: any = {};
 
-    constructor(public merchantService: MerchantService, public route: ActivatedRoute) {
+    constructor(public merchantService: MerchantService, public router: Router) {
         this.merchantid = this.merchantService.merchantid;
         if (!this.merchantid) this.router.navigate(['/']);
         

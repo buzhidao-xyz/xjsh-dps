@@ -13,11 +13,11 @@ import { UserService, WeixinService } from '../service/index';
 })
 export class UserComponent {
   userid: string;
-  errorMessage: string;
   user: any = {};
+  errorMessage: string;
 
   constructor(public userService: UserService, public weixinService: WeixinService, public route: ActivatedRoute) {
-    // this.weixinService.config();
+    this.weixinService.config();
   }
   
   /**
@@ -39,5 +39,32 @@ export class UserComponent {
                           this.errorMessage = <any>error;
                         }
                      );
+  }
+
+  //提现
+  profitOn(profitid: any) {
+    if (!profitid) return;
+    this.userService.profitOn(profitid)
+                    .subscribe(
+                        res => {
+                          if (!res.error) {
+                            alert('提现成功！');
+                          } else {
+                            alert('提现失败！');
+                          }
+                        },
+                        error => {
+                          this.errorMessage = <any>error;
+                        }
+                     );
+  }
+
+  //分享
+  share() {
+    var title = '细节生活';
+    var link = '';
+    var img = this.user.qrcode;
+
+    this.weixinService.wxshareTimeLine(title, link, img);
   }
 }
