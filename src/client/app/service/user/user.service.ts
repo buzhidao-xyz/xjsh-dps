@@ -11,6 +11,8 @@ import { Config } from '../../commonc/index';
  */
 @Injectable()
 export class UserService {
+    qrcodeurl: string;
+
     constructor(private http: Http) {}
 
     //获取用户信息

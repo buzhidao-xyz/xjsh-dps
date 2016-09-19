@@ -19,9 +19,7 @@ export class MerchantService {
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private http: Http) {
-    
-  }
+  constructor(private http: Http) {}
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.

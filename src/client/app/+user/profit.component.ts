@@ -12,7 +12,6 @@ import { UserService } from '../service/index';
 })
 
 export class ProfitComponent implements OnInit {
-
   errorMessage: string;
   profits: any = [];
 
@@ -40,6 +39,25 @@ export class ProfitComponent implements OnInit {
                         res => {
                           if (!res.error) {
                             this.profits = res.profits;
+                          }
+                        },
+                        error => {
+                          this.errorMessage = <any>error;
+                        }
+                     );
+  }
+
+  //提现
+  profitOn(profitid: any) {
+    if (!profitid) return;
+    
+    this.userService.profitOn(profitid)
+                    .subscribe(
+                        res => {
+                          if (!res.error) {
+                            alert('提现成功！');
+                          } else {
+                            alert('提现失败！');
                           }
                         },
                         error => {

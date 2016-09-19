@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommoncModule } from '../commonc/commonc.module';
 import { PublicComponent } from './public.component';
@@ -10,6 +10,4 @@ import { PublicComponent } from './public.component';
     providers: []
 })
 
-export class MerchantModule {
-  
-}
+export class MerchantModule {}

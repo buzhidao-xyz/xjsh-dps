@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { MerchantService } from '../service/index';
 
 /**
@@ -22,7 +22,7 @@ export class PaymentComponent implements OnInit {
     constructor(public merchantService: MerchantService, public router: Router) {
         this.merchantid = this.merchantService.merchantid;
         if (!this.merchantid) this.router.navigate(['/']);
-        
+
         this.amount = this.merchantService.amount;
     }
 
@@ -33,9 +33,6 @@ export class PaymentComponent implements OnInit {
       this.getMerchantlist();
     }
 
-    /**
-     * Handle the MerchantService observable
-     */
     getMerchantlist() {
     this.merchantService.getMerchantlist()
                      .subscribe(

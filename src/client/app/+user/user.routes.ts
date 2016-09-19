@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { UserComponent } from './index';
 import { RankingComponent } from './index';
 import { ProfitComponent } from './index';
+import { UqrcodeComponent } from './index';
 
 export const UserRoutes: Route[] = [
   {
@@ -15,5 +16,9 @@ export const UserRoutes: Route[] = [
   {
     path: 'user/profit',
     component: ProfitComponent
+  },
+  {
+    path: 'user/qrcode',
+    component: UqrcodeComponent
   }
 ];

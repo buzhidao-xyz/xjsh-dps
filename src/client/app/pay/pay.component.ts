@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MerchantService, WeixinService } from '../service/index';
 
 /**
@@ -25,13 +25,16 @@ export class PayComponent implements OnInit {
    *
    * @param {MerchantService} MerchantService - The injected MerchantService.
    */
-  constructor(public merchantService: MerchantService, public weixinService: WeixinService, public route: ActivatedRoute, public router: Router) {
+  constructor(public merchantService: MerchantService, public weixinService: WeixinService,
+  public route: ActivatedRoute, public router: Router) {
     this.merchantid = this.merchantService.merchantid;
     if (!this.merchantid) this.router.navigate(['/']);
 
-    this.weixinService.config();
+    // var url = encodeURIComponent(location.origin+'/pay');
+    var url = encodeURIComponent(location.href.split('#')[0]);
+    this.weixinService.config(url);
   }
-  
+
   /**
    * Get the merchants OnInit
    */

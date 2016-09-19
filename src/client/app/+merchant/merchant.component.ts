@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MerchantService } from '../service/index';
 
 /**
  * This class represents the lazy loaded MerchantComponent.
@@ -13,22 +11,7 @@ import { MerchantService } from '../service/index';
 })
 
 export class MerchantComponent implements OnInit {
-  merchantid: any;
-  merchant: any = {};
-  errorMessage: string;
+  constructor() {}
 
-  /**
-   * Creates an instance of the MerchantComponent with the injected
-   * MerchantService.
-   *
-   * @param {MerchantService} MerchantService - The injected MerchantService.
-   */
-  constructor(public merchantService: MerchantService, public router: Router) {}
-  
-  /**
-   * Get the merchants OnInit
-   */
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }

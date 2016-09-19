@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Router, ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 import { Config, NavbarComponent, ToolbarComponent } from './commonc/index';
 
 /**
@@ -15,7 +15,20 @@ import { Config, NavbarComponent, ToolbarComponent } from './commonc/index';
 })
 
 export class AppComponent {
-  constructor() {
+  constructor(public router: Router, public aroute: ActivatedRoute) {
     console.log('Environment config', Config);
+
+    this.aroute.queryParams.subscribe(
+      params => {
+        var action = params['action'];
+        switch (action) {
+          case 'user':
+            this.router.navigate(['/user']);
+          break;
+          default:
+          break;
+        }
+      }
+    );
   }
 }

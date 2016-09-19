@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommoncModule } from '../commonc/commonc.module';
 import { PayComponent } from './pay.component';
@@ -11,6 +11,4 @@ import { WeixinService } from '../service/index';
     providers: [WeixinService]
 })
 
-export class PayModule {
-  
-}
+export class PayModule {}

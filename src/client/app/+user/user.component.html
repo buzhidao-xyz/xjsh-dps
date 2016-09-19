@@ -5,7 +5,7 @@
     </div>
     <div class="listinfo">
         <p>
-            <span class="clabel">下级人数：</span>
+            <span class="clabel">推广人数：</span>
             <span class="cvalue"><b>{{user.promotion_count}}</b></span>
         </p>
         <p>
@@ -23,14 +23,14 @@
             </span>
         </p>
         <p>
-            <a href="/user/profit" class="plink">
+            <a routerLink="javascript:;" class="plink" (click)="profit()">
                 <span class="clabel">提成管理</span>
                 <span class="carrow">&gt;</span>
             </a>
         </p>
         <p>
-            <a href="javascript:;" class="plink" (click)="share()">
-                <span class="clabel">分享二维码</span>
+            <a href="javascript:;" class="plink" (click)="qrcode()">
+                <span class="clabel">二维码</span>
                 <span class="carrow">&gt;</span>
             </a>
         </p>

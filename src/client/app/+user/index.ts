@@ -4,5 +4,6 @@
 export * from './user.component';
 export * from './ranking.component';
 export * from './profit.component';
+export * from './uqrcode.component';
 export * from './user.routes';
 

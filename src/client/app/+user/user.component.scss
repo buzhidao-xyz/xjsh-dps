@@ -148,3 +148,20 @@ h2 {
     }
   }
 }
+
+.qrcodebox {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 100px;
+
+  img.qrcode {
+    max-width: 75%;
+    height: auto;
+  }
+
+  p.share {
+    width: 75%;
+    margin: 30px auto 10px auto;
+  }
+}

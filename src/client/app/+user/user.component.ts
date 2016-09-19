@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService, WeixinService } from '../service/index';
 
 /**
@@ -9,20 +9,16 @@ import { UserService, WeixinService } from '../service/index';
   moduleId: module.id,
   selector: 'sd-user',
   templateUrl: 'user.component.html',
-  styleUrls: ['user.component.css']
+  styleUrls: ['user.component.css'],
+  directives: []
 })
-export class UserComponent {
-  userid: string;
+export class UserComponent implements OnInit {
   user: any = {};
+
   errorMessage: string;
 
-  constructor(public userService: UserService, public weixinService: WeixinService, public route: ActivatedRoute) {
-    this.weixinService.config();
-  }
-  
-  /**
-   * Get the merchants OnInit
-   */
+  constructor(public userService: UserService, public router: Router) {}
+
   ngOnInit() {
     this.getUser();
   }
@@ -41,30 +37,14 @@ export class UserComponent {
                      );
   }
 
-  //提现
-  profitOn(profitid: any) {
-    if (!profitid) return;
-    this.userService.profitOn(profitid)
-                    .subscribe(
-                        res => {
-                          if (!res.error) {
-                            alert('提现成功！');
-                          } else {
-                            alert('提现失败！');
-                          }
-                        },
-                        error => {
-                          this.errorMessage = <any>error;
-                        }
-                     );
+  //提成
+  profit() {
+    this.router.navigate(['/user/profit']);
   }
 
-  //分享
-  share() {
-    var title = '细节生活';
-    var link = '';
-    var img = this.user.qrcode;
-
-    this.weixinService.wxshareTimeLine(title, link, img);
+  //二维码
+  qrcode() {
+    this.userService.qrcodeurl = this.user.qrcode;
+    this.router.navigate(['/user/qrcode']);
   }
 }

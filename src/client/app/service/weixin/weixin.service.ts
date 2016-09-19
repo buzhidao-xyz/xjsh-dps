@@ -19,32 +19,35 @@ declare var wxpayres: any;
 export class WeixinService {
     errorMessage: any;
 
-    constructor(private http: Http, private router: Router) {
-        
-    }
+    constructor(private http: Http, private router: Router) {}
 
     //获取JS验签sign
-    getJSapisign(): Observable<any> {
-        var url = location.href;
-        
+    getJSapisign(url: string): Observable<any> {
+        if (!url) return;
+
         return this.http.get(Config.API + 'api/jsapi/sign?url='+url)
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
     }
 
     //WXJS权限验证
-    config(): any {
-        this.getJSapisign().subscribe(
+    config(url: string): any {
+        this.getJSapisign(url).subscribe(
             res => {
                 if (!res.error) {
                     var jsconfig = res.sign;
                     wx.config({
                         debug: true,
                         appId: jsconfig.appid,
-                        timestamp: parseInt(jsconfig.timestamp),
+                        timestamp: jsconfig.timestamp,
                         nonceStr: jsconfig.noncestr,
                         signature: jsconfig.signature,
-                        jsApiList: []
+                        jsApiList: ['hideOptionMenu','hideAllNonBaseMenuItem','chooseWXPay','onMenuShareTimeline']
+                    });
+
+                    wx.ready(function (){
+                        // wx.hideOptionMenu();
+                        // wx.hideAllNonBaseMenuItem();
                     });
                 }
             },
@@ -56,7 +59,7 @@ export class WeixinService {
 
     //获取微信支付信息
     getWxPay(amount: any, merchantid: any): Observable<any> {
-        return this.http.get(Config.API + 'api/jsapi/sign?amount='+amount+'&merchant_id='+merchantid)
+        return this.http.post(Config.API + 'api/merchant/pay?amount='+amount+'&merchant_id='+merchantid, {})
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
     }
@@ -68,18 +71,21 @@ export class WeixinService {
         this.getWxPay(amount, merchantid).subscribe(
             res => {
                 if (!res.error) {
-                    var payinfo = res.sign;
+                    var payinfo = res.pay;
+                    console.log(res);
                     wx.chooseWXPay({
-                        timestamp: parseInt(payinfo.timestamp), // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-                        nonceStr: payinfo.noncestr, // 支付签名随机串，不长于 32 位
-                        package: payinfo.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-                        signType: payinfo.signtype, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-                        paySign: payinfo.paysign, // 支付签名
+                        timestamp: payinfo.timestamp,
+                        nonceStr: payinfo.noncestr,
+                        package: payinfo.package,
+                        signType: payinfo.signtype,
+                        paySign: payinfo.paysign,
                         success: function (res: any, router: Router, merchantid: any) {
                             // 支付成功后的回调函数
                             router.navigate(['/pay/payment']);
                         }
                     });
+                } else {
+                    alert(res.message);
                 }
             },
             error => {

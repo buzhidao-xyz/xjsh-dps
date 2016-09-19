@@ -12,6 +12,8 @@ import { MerchantListComponent } from '../+merchant/index';
   styleUrls: ['home.component.css'],
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor() {}
 
+  ngOnInit() {}
 }
