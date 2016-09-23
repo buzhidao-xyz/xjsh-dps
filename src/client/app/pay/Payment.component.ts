@@ -16,8 +16,8 @@ export class PaymentComponent implements OnInit {
     amount: any;
 
     merchantid: string;
-    errorMessage: string;
     merchant: any = {};
+    errorMessage: string;
 
     constructor(public merchantService: MerchantService, public router: Router) {
         this.merchantid = this.merchantService.merchantid;

@@ -12,21 +12,15 @@ import { UserService } from '../service/index';
 })
 
 export class RankingComponent implements OnInit {
-
   errorMessage: string;
   ranking: any = [];
 
-  /**
-   * Creates an instance of the MerchantComponent with the injected
-   * UserService.
-   *
-   * @param {UserService} UserService - The injected UserService.
-   */
+  title: string;
+
+  //构造函数
   constructor(public userService: UserService) {}
 
-  /**
-   * Get the merchants OnInit
-   */
+  //初始化执行
   ngOnInit() {
     this.getRanking();
   }
@@ -39,7 +33,11 @@ export class RankingComponent implements OnInit {
                      .subscribe(
                         res => {
                           if (!res.error) {
-                            this.ranking = res.users;
+                            this.title = res.ranking.title;
+                            this.ranking = res.ranking.users;
+                            for (var index in this.ranking) {
+                              this.ranking[index].profit_amount = (this.ranking[index].profit_amount/100).toFixed(2);
+                            }
                           }
                         },
                         error => {

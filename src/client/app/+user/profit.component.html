@@ -1,4 +1,10 @@
 <div class="profitbox">
+    <p style="text-align: center; color: #777; margin-top: 5px; margin-bottom: 5px; font-size: 12px;">
+        注：每月提成计算规则详见模式简介
+    </p>
+    <div class="alert alert-success" role="alert" style="text-align: center;">
+        本月提成累计金额： <strong><font color="#ff5722">¥{{cprofit}}</font></strong>
+    </div>
     <ul class="list-unstyled">
         <li *ngFor="let profit of profits">
             <p class="dt">{{profit.year}}年{{profit.month}}月</p>
@@ -6,9 +12,11 @@
                 <span class="amount">分成金额：<h5>{{profit.amount}}</h5>元</span>
                 <span class="opbtn">
                     <button type="button" class="btn btn-success btn-sm" *ngIf="profit.status==0" (click)="profitOn(profit.id)">提现</button>
-                    <button type="button" class="btn btn-secondary btn-sm disabled" disabled *ngIf="profit.status==1">已提现</button>
+                    <button type="button" class="btn btn-secondary btn-sm disabled" disabled *ngIf="profit.status==1">提现中</button>
+                    <button type="button" class="btn btn-secondary btn-sm disabled" disabled *ngIf="profit.status==2">已提现</button>
                 </span>
             </p>
         </li>
     </ul>
+    <p *ngIf="profitscount==0" style="color: #CCCCCC; text-align: center; margin-top: 50%;">暂无可提现业绩提成</p>
 </div>

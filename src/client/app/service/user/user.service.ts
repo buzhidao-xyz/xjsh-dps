@@ -15,6 +15,11 @@ export class UserService {
 
     constructor(private http: Http) {}
 
+    //用户授权
+    auth(url: string) {
+        location.href = Config.API + 'reauth?url=' + encodeURIComponent(url) + '&' + Math.round(Math.random()*10000);
+    }
+
     //获取用户信息
     getUserinfo(): Observable<any> {
         return this.http.get(Config.API + 'api/user/info')
@@ -25,6 +30,13 @@ export class UserService {
     //获取用户上月收益排行榜
     getRanking(): Observable<any> {
         return this.http.get(Config.API + 'api/ranking')
+                    .map((res: Response) => res.json())
+                    .catch(this.handleError);
+    }
+
+    //获取用户当月业绩金额
+    getCProfit(): Observable<any> {
+        return this.http.get(Config.API + 'api/profit/pre')
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
     }

@@ -1,18 +1,18 @@
 <div class="rankingbox">
-    <h5 class="title">2016年9月排行榜</h5>
+    <h5 class="title">{{title}}</h5>
     <table class="ranking">
         <thead>
             <tr>
                 <th>名次</th>
                 <th>用户</th>
-                <th>业绩金额（元）</th>
+                <th>提现金额（元）</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of ranking; let i=index">
                 <td>{{i+1}}</td>
                 <td>{{user.nickname}}</td>
-                <td>{{user.profit_amount}}</td>
+                <td>¥{{user.profit_amount}}</td>
             </tr>
         </tbody>
     </table>

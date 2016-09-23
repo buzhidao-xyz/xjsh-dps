@@ -29,6 +29,10 @@ export class UserComponent implements OnInit {
                         res => {
                           if (!res.error) {
                             this.user = res.user;
+                            this.user.amount = (this.user.amount/100).toFixed(2);
+                            this.user.promotion_amount = (this.user.promotion_amount/100).toFixed(2);
+                          } else {
+                            alert(res.message);
                           }
                         },
                         error => {
@@ -45,6 +49,6 @@ export class UserComponent implements OnInit {
   //二维码
   qrcode() {
     this.userService.qrcodeurl = this.user.qrcode;
-    this.router.navigate(['/user/qrcode']);
+    this.router.navigate(['/userqrcode']);
   }
 }

@@ -10,8 +10,6 @@ import { Config } from '../../commonc/index';
 //微信JS对象
 declare var wx: any;
 
-declare var wxpayres: any;
-
 /**
  * WeixinService Class
  */
@@ -37,17 +35,23 @@ export class WeixinService {
                 if (!res.error) {
                     var jsconfig = res.sign;
                     wx.config({
-                        debug: true,
+                        debug: false,
                         appId: jsconfig.appid,
                         timestamp: jsconfig.timestamp,
                         nonceStr: jsconfig.noncestr,
                         signature: jsconfig.signature,
-                        jsApiList: ['hideOptionMenu','hideAllNonBaseMenuItem','chooseWXPay','onMenuShareTimeline']
+                        jsApiList: [
+                            'hideOptionMenu',
+                            'chooseWXPay',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            'onMenuShareQZone'
+                        ]
                     });
 
                     wx.ready(function (){
                         // wx.hideOptionMenu();
-                        // wx.hideAllNonBaseMenuItem();
                     });
                 }
             },
@@ -59,7 +63,8 @@ export class WeixinService {
 
     //获取微信支付信息
     getWxPay(amount: any, merchantid: any): Observable<any> {
-        return this.http.post(Config.API + 'api/merchant/pay?amount='+amount+'&merchant_id='+merchantid, {})
+        var amountn = parseFloat(amount)*100;
+        return this.http.post(Config.API + 'api/merchant/pay?amount='+amountn+'&merchant_id='+merchantid, {})
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
     }
@@ -72,16 +77,15 @@ export class WeixinService {
             res => {
                 if (!res.error) {
                     var payinfo = res.pay;
-                    console.log(res);
                     wx.chooseWXPay({
                         timestamp: payinfo.timestamp,
                         nonceStr: payinfo.noncestr,
                         package: payinfo.package,
                         signType: payinfo.signtype,
                         paySign: payinfo.paysign,
-                        success: function (res: any, router: Router, merchantid: any) {
+                        success: function (res: any) {
                             // 支付成功后的回调函数
-                            router.navigate(['/pay/payment']);
+                            // router.navigate(['/pay/payment']);
                         }
                     });
                 } else {
@@ -100,6 +104,56 @@ export class WeixinService {
     wxshareTimeLine(title: string, link: string, imgUrl: string): any {
         wx.onMenuShareTimeline({
             title: title, // 分享标题
+            link: link, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    }
+
+    //分享给朋友
+    wxshareAppMessage(title: string, desc: string, link: string, imgUrl: string): any {
+        wx.onMenuShareAppMessage({
+            title: title, // 分享标题
+            desc: desc,
+            link: link, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    }
+
+    //分享到QQ
+    wxshareQQ(title: string, desc: string, link: string, imgUrl: string): any {
+        wx.onMenuShareQQ({
+            title: title, // 分享标题
+            desc: desc,
+            link: link, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    }
+
+    //分享到QZone
+    wxshareQZone(title: string, desc: string, link: string, imgUrl: string): any {
+        wx.onMenuShareQZone({
+            title: title, // 分享标题
+            desc: desc,
             link: link, // 分享链接
             imgUrl: imgUrl, // 分享图标
             success: function () {

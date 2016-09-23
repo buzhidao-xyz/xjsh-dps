@@ -18,7 +18,7 @@ export const UserRoutes: Route[] = [
     component: ProfitComponent
   },
   {
-    path: 'user/qrcode',
+    path: 'userqrcode',
     component: UqrcodeComponent
   }
 ];

@@ -12,6 +12,9 @@ h2 {
 
 .userbox {
   margin: 0 -15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 70px;
 
   .basicinfo {
     text-align: center;
@@ -71,6 +74,9 @@ h2 {
 .rankingbox {
   display: block;
   padding: 10px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
 
   h5.title {
     padding-top: 10px;
@@ -107,6 +113,18 @@ h2 {
 }
 
 .profitbox {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
+
+  ul {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   li {
     border-radius: 5px;
     background: #F1F1F1;

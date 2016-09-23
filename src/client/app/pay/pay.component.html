@@ -6,9 +6,16 @@
         <p>地址：{{merchant.address}}</p>
         <p>
             <span class="clabel">消费金额：</span>
-            <span><input type="bumber" name="amount" value="" [(ngModel)]="amount" class="form-control" style="width: 150px;"></span>
+            <span><input type="text" name="amount" value="" [(ngModel)]="amount" class="form-control" style="width: 150px;"></span>
             <span class="clabel">&nbsp;&nbsp;元</span>
         </p>
+        <p>简介：{{merchant.description}}</p>
         <p><button type="submit" class="btn btn-success btn-md btn-block">微信买单</button></p>
     </form>
+    <div class="mask" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0, 0.5); z-index: 9999;" *ngIf="maskshow==1">
+        <p style="position: absolute; width: 50%; top: 50%; left: 50%; margin-left: -25%; margin-top: -70px;">
+            <button class="btn btn-success btn-md btn-block" style="margin: 0 auto;" (click)="paySuccess()">买单完成？回到首页</button>
+            <button class="btn btn-warning btn-md btn-block" style="margin: 30px auto;" (click)="payFail()">遇到问题？重新买单</button>
+        </p>
+    </div>
 </div>

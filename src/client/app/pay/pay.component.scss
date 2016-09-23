@@ -6,6 +6,9 @@
   display: block;
   padding: 0 30px;
   padding-top: 30px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
 
   .logo {
     text-align: center;
