@@ -61,9 +61,6 @@ export class AppComponent {
         if ("action" in params) {
           action = params['action'];
 
-          //分享设置
-          this.share();
-
           switch (action) {
             case 'user':
               this.router.navigate(['/user']);
